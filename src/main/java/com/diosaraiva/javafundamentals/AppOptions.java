@@ -10,6 +10,7 @@ public class AppOptions {
 		System.out.println("1. design-patterns/creational/factorymethod");
 		System.out.println("2. design-patterns/creational/builder");
 		System.out.println("3. design-patterns/creational/abstractfactory");
+		System.out.println("4. design-patterns/creational/prototype");
 		System.out.println("\n0. EXIT");
 		System.out.print("\nSelect your output option: ");
 	}

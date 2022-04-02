@@ -1,6 +1,6 @@
 package com.diosaraiva.javafundamentals.testing;
 
-public class TestingService {
+public class TestingService{
 	public int add(int a, int b){
 		return a+b;
 	}

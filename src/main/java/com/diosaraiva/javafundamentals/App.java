@@ -5,9 +5,9 @@ import java.io.IOException;
 import com.diosaraiva.javafundamentals.designpatterns.creational.abstractfactory.AbstractFactory;
 import com.diosaraiva.javafundamentals.designpatterns.creational.builder.Builder;
 import com.diosaraiva.javafundamentals.designpatterns.creational.factorymethod.FactoryMethod;
+import com.diosaraiva.javafundamentals.designpatterns.creational.prototype.PrototypePattern;
 
 public class App{
-
 	public static void main(String[] args) throws IOException{
 		boolean loop = true;
 
@@ -20,7 +20,7 @@ public class App{
 			case 1: FactoryMethod.GenerateBill(); break;
 			case 2: Builder.BuildCds(); break;
 			case 3: AbstractFactory.GetLoan(); break;
-			case 4: break;
+			case 4: PrototypePattern.PrintRecords(); break;
 			case 5: break;
 			case 6: break;
 			case 7: break;
