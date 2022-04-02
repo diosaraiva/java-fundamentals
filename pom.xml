@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
  
     <name>java-fundamentals</name>
-    <url>http://www.example.com</url>
+    <url>https://github.com/diosaraiva/java-fundamentals</url>
  
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -4,12 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import com.diosaraiva.javafundamentals.testing.TestingService;
-
-class TestingServiceTest {
-
+class TestingServiceTest{
 	@Test
-	void addTest() {
+	void addTest(){
 		TestingService demoService = new TestingService();
 		
 		int result = demoService.add(100, 200);
@@ -17,7 +14,7 @@ class TestingServiceTest {
 	}
 	
 	@Test
-	void concatTest() {
+	void concatTest(){
 		TestingService demoService = new TestingService();
 		
 		String result = demoService.concat("a", "b");
