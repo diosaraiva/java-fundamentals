@@ -7,6 +7,7 @@ import com.diosaraiva.javafundamentals.designpatterns.creational.builder.Builder
 import com.diosaraiva.javafundamentals.designpatterns.creational.factorymethod.FactoryMethod;
 import com.diosaraiva.javafundamentals.designpatterns.creational.objectpool.ObjectPoolPattern;
 import com.diosaraiva.javafundamentals.designpatterns.creational.prototype.PrototypePattern;
+import com.diosaraiva.javafundamentals.designpatterns.structural.adapter.Adapter;
 
 public class App{
 	public static void main(String[] args) throws IOException{
@@ -23,7 +24,7 @@ public class App{
 			case 3: AbstractFactory.GetLoan(); break;
 			case 4: PrototypePattern.PrintRecords(); break;
 			case 5: ObjectPoolPattern.TestObjectPool(); break;
-			case 6: break;
+			case 6: Adapter.GetCreditCard(); break;
 			case 7: break;
 			case 8: break;
 			case 9: break;

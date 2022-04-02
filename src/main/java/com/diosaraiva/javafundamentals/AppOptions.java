@@ -12,16 +12,18 @@ public class AppOptions {
 		System.out.println("3. design-patterns/creational/abstractfactory");
 		System.out.println("4. design-patterns/creational/prototype");
 		System.out.println("5. design-patterns/creational/objectpool");
+		System.out.println("6. design-patterns/structural/adapter");
 		System.out.println("\n0. EXIT");
 		System.out.print("\nSelect your output option: ");
 	}
 	
 	public static int getOption() throws NumberFormatException, IOException{
+		System.out.println();
 		int option = 0;
 		
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		
 		option=Integer.parseInt(br.readLine());
-		System.out.println();
 		
 		return option;
 	}
