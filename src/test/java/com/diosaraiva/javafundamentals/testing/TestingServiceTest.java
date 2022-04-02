@@ -1,14 +1,16 @@
-package com.diosaraiva.javafundamentals;
+package com.diosaraiva.javafundamentals.testing;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-class DemoServiceTest {
+import com.diosaraiva.javafundamentals.testing.TestingService;
+
+class TestingServiceTest {
 
 	@Test
 	void addTest() {
-		DemoService demoService = new DemoService();
+		TestingService demoService = new TestingService();
 		
 		int result = demoService.add(100, 200);
 		assertEquals(300, result);
@@ -16,7 +18,7 @@ class DemoServiceTest {
 	
 	@Test
 	void concatTest() {
-		DemoService demoService = new DemoService();
+		TestingService demoService = new TestingService();
 		
 		String result = demoService.concat("a", "b");
 		assertEquals("ab", result);
