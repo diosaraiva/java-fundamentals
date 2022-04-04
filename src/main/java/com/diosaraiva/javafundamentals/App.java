@@ -13,23 +13,27 @@ public class App{
 	public static void main(String[] args) throws IOException{
 		boolean loop = true;
 
-		while(loop){
-			AppOptions.showOptions();
+		try {
+			while(loop){
+				switch (AppOptions.getUserOption()){
+				case 0: loop = false; break;
 
-			switch (AppOptions.getOption()){
-			case 0: loop = false; break;
+				case 1: FactoryMethod.GenerateBill();		AppOptions.pressToContinue(); break;
+				case 2: Builder.BuildCds(); 				AppOptions.pressToContinue(); break;
+				case 3: AbstractFactory.GetLoan();			AppOptions.pressToContinue(); break;
+				case 4: PrototypePattern.PrintRecords();	AppOptions.pressToContinue(); break;
+				case 5: ObjectPoolPattern.TestObjectPool();	AppOptions.pressToContinue(); break;
+				case 6: Adapter.GetCreditCard();			AppOptions.pressToContinue(); break;
+				case 7: break;
+				case 8: break;
+				case 9: break;
+				case 10: break;
 
-			case 1: FactoryMethod.GenerateBill(); break;
-			case 2: Builder.BuildCds(); break;
-			case 3: AbstractFactory.GetLoan(); break;
-			case 4: PrototypePattern.PrintRecords(); break;
-			case 5: ObjectPoolPattern.TestObjectPool(); break;
-			case 6: Adapter.GetCreditCard(); break;
-			case 7: break;
-			case 8: break;
-			case 9: break;
-			case 10: break;
+				default: System.out.println("INVALID OPTION"); break;
+				}
 			}
+		} catch (Exception e){
+			System.out.println("\n[ERROR: " + e.toString() + "]");
 		}
-	}    
-}
+	}
+}    

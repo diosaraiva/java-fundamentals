@@ -10,10 +10,9 @@ class EmployeeRecord implements Prototype{
 		System.out.println("   Employee Records of Oracle Corporation ");  
 		System.out.println("---------------------------------------------");  
 		System.out.println("Eid"+"\t"+"Ename"+"\t"+"Edesignation"+"\t"+"Esalary"+"\t\t"+"Eaddress");  
-
 	}  
 
-	public  EmployeeRecord(int id, String name, String designation, double salary, String address) {  
+	public  EmployeeRecord(int id, String name, String designation, double salary, String address){  
 
 		this();  
 		this.id = id;  
@@ -29,7 +28,7 @@ class EmployeeRecord implements Prototype{
 	}  
 
 	@Override  
-	public Prototype getClone() {  
+	public Prototype getClone(){  
 
 		return new EmployeeRecord(id,name,designation,salary,address);  
 	}  

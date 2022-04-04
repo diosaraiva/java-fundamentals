@@ -33,7 +33,6 @@ public abstract class ObjectPool<T>{
 		// initialize pool  
 
 		initialize(minObjects);  
-
 	}  
 
 	/* 
@@ -45,25 +44,25 @@ public abstract class ObjectPool<T>{
       When the number of objects is less than minObjects, missing instances will be created. 
       When the number of objects is greater than maxObjects, too many instances will be removed. 
 	 */  
-	public ObjectPool(final int minObjects, final int maxObjects, final long validationInterval) {  
+	public ObjectPool(final int minObjects, final int maxObjects, final long validationInterval){  
 		// initialize pool  
 		initialize(minObjects);  
 		// check pool conditions in a separate thread  
 		executorService = Executors.newSingleThreadScheduledExecutor();  
-		executorService.scheduleWithFixedDelay(new Runnable()  // annonymous class  
+		executorService.scheduleWithFixedDelay(new Runnable()  //annonymous class  
 				{  
 			@Override  
-			public void run() {  
+			public void run(){  
 				int size = pool.size();  
 
-				if (size < minObjects) {  
+				if (size < minObjects){  
 					int sizeToBeAdded = minObjects + size;  
-					for (int i = 0; i < sizeToBeAdded; i++) {  
+					for (int i = 0; i < sizeToBeAdded; i++){  
 						pool.add(createObject());  
 					}  
 				} else if (size > maxObjects) {  
 					int sizeToBeRemoved = size - maxObjects;  
-					for (int i = 0; i < sizeToBeRemoved; i++) {  
+					for (int i = 0; i < sizeToBeRemoved; i++){  
 						pool.poll();  
 					}  
 				}  
@@ -77,10 +76,9 @@ public abstract class ObjectPool<T>{
 
       @return T borrowed object 
 	 */  
-	public T borrowObject() {  
+	public T borrowObject(){  
 		T object;  
-		if ((object = pool.poll()) == null)  
-		{  
+		if ((object = pool.poll()) == null){  
 			object = createObject();  
 		}  
 		return object;  
@@ -89,29 +87,29 @@ public abstract class ObjectPool<T>{
       Returns object back to the pool. 
       @param object object to be returned 
 	 */  
-	public void returnObject(T object) {  
+	public void returnObject(T object){  
 		if (object == null) {  
 			return;  
 		}  
 		this.pool.offer(object);  
-	}  
-	/* 
-        Shutdown this pool. 
-	 */  
+	}
+
+	//Shutdown this pool.  
 	public void shutdown(){  
 		if (executorService != null){  
 			executorService.shutdown();  
 		}  
-	}  
+	}
+
 	/* 
-        Creates a new object. 
-         @return T new object 
+     Creates a new object. 
+     @return T new object 
 	 */  
 	protected abstract T createObject();  
 
 	private void initialize(final int minObjects){  
 		pool = new ConcurrentLinkedQueue<T>();  
-		for (int i = 0; i < minObjects; i++) {  
+		for (int i = 0; i < minObjects; i++){  
 			pool.add(createObject());  
 		}  
 	}  

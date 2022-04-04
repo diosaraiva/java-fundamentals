@@ -10,7 +10,7 @@ public class ExportingProcess{
 		System.out.println("Object with process no. " + processNo + " was created");  
 	}  
 
-	public long getProcessNo() {  
+	public long getProcessNo(){  
 		return processNo;  
 	}  
 }

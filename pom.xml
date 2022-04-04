@@ -1,108 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
- 
-    <groupId>com.diosaraiva</groupId>
-    <artifactId>java-fundamentals</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
- 
-    <name>java-fundamentals</name>
-    <url>https://github.com/diosaraiva/java-fundamentals</url>
- 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven.compiler.release>${java.version}</maven.compiler.release>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-        <junit>5.8.2</junit>
-        
-        <!-- Plugin versions -->
-        <maven.shade>3.3.0</maven.shade>
-        <maven.clean>3.1.0</maven.clean>
-        <maven.resources>3.2.0</maven.resources>
-        <maven.compiler>3.10.1</maven.compiler>
-        <maven.surefire>3.0.0-M5</maven.surefire>
-        <maven.jar>3.2.2</maven.jar>
-        <maven.install>3.0.0-M1</maven.install>
-    </properties>
+	<groupId>com.diosaraiva</groupId>
+	<artifactId>java-fundamentals</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-    <dependencies>
-        <!-- Dependencies -->
-    
-    
-        <!-- Testing dependencies-->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>${junit}</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-    
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>${maven.clean}</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>${maven.resources}</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler}</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire}</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${maven.jar}</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>${maven.install}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>${maven.shade}</version>
-                <executions>
-                <execution>
-                    <phase>package</phase>
-                    <goals>
-                    <goal>shade</goal>
-                    </goals>
-                    <configuration>
-						<transformers>
-		                       <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-		                       		<mainClass>com.diosaraiva.javafundamentals.App</mainClass>
-		                       </transformer>
-		            	</transformers>
-		            	<!-- <finalName>${project.artifactId}-${project.version}-shaded</finalName> -->
-		            	<!--<outputFile>${project.artifactId}-shaded.jar</outputFile>-->
-                    </configuration>
-                </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+	<name>java-fundamentals</name>
+	<url>https://github.com/diosaraiva/java-fundamentals</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>17</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<maven.compiler.release>${java.version}</maven.compiler.release>
+
+		<junit>5.8.2</junit>
+
+		<maven.shade>3.3.0</maven.shade>
+		<maven.clean>3.1.0</maven.clean>
+		<maven.resources>3.2.0</maven.resources>
+		<maven.compiler>3.10.1</maven.compiler>
+		<maven.surefire>3.0.0-M5</maven.surefire>
+		<maven.jar>3.2.2</maven.jar>
+		<maven.install>3.0.0-M1</maven.install>
+		<properties.maven>1.1.0</properties.maven>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>${junit}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>${maven.clean}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven.resources}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven.jar}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>${maven.install}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>${maven.shade}</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>com.diosaraiva.javafundamentals.App</mainClass>
+								</transformer>
+							</transformers>
+							<!-- <finalName>${project.artifactId}-${project.version}-shaded</finalName> -->
+							<!--<outputFile>${project.artifactId}-shaded.jar</outputFile>-->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

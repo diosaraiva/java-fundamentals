@@ -14,7 +14,7 @@ package com.diosaraiva.javafundamentals.designpatterns.creational.builder;
  https://www.javatpoint.com/builder-design-pattern
  */
 public class Builder{
-	public static void BuildCds() {  
+	public static void BuildCds(){  
 		CdBuilder cdBuilder=new CdBuilder();  
 		
 		CdType cdType1=cdBuilder.buildSonyCD();  
