@@ -13,7 +13,7 @@ import java.util.Vector;
  https://www.javatpoint.com/collections-in-java
  */
 public class Lists{
-	
+
 	/*
 	The ArrayList class implements the List interface. 
 	It uses a dynamic array to store the duplicate element of different data types. 
@@ -49,4 +49,47 @@ public class Lists{
 	Custom: generics usage
 	 */
 	List<String> listE = new ArrayList<String>();
+
+	synchronized public static List getOutputList(List list){
+		//Add
+		list.add("1. Item A (new)");
+		list.add("2. Item B (new)");
+		list.add("3. Item C (new)");
+		list.add("4. Item D (new)");
+		
+		//Stream: remove element
+		list.removeIf((Object e) -> e.equals("4. Item D (new)"));
+
+		return list;
+	}
+
+	public static void printList(List list){
+		for(var item : list){
+			System.out.println(item);
+		}
+	}
+
+	public static void printArrayList(){
+		List listA = new ArrayList();
+		getOutputList(listA);
+		printList(listA);
+	}
+
+	public static void printLinkedList(){
+		List listB = new LinkedList();
+		listB = getOutputList(listB);
+		printList(listB);
+	}
+
+	public static void printVector(){
+		List listC = new Vector();
+		listC = getOutputList(listC);
+		printList(listC);
+	}
+
+	public static void printStack(){
+		List listD = new Stack();
+		listD = getOutputList(listD);
+		printList(listD);
+	}
 }

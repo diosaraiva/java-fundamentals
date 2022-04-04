@@ -15,6 +15,10 @@ public class AppOptions{
 		optionList.put(4, "design-patterns/creational/prototype");
 		optionList.put(5, "design-patterns/creational/objectpool");
 		optionList.put(6, "design-patterns/structural/adapter");
+		optionList.put(7, "interfaces/collection/arraylist");
+		optionList.put(8, "interfaces/collection/linkedlist");
+		optionList.put(9, "interfaces/collection/vector");
+		optionList.put(10, "interfaces/collection/stack");
 
 		return optionList;
 	}

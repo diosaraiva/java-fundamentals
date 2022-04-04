@@ -8,6 +8,7 @@ import com.diosaraiva.javafundamentals.designpatterns.creational.factorymethod.F
 import com.diosaraiva.javafundamentals.designpatterns.creational.objectpool.ObjectPoolPattern;
 import com.diosaraiva.javafundamentals.designpatterns.creational.prototype.PrototypePattern;
 import com.diosaraiva.javafundamentals.designpatterns.structural.adapter.Adapter;
+import com.diosaraiva.javafundamentals.interfaces.collection.Lists;
 
 public class App{
 	public static void main(String[] args) throws IOException{
@@ -24,10 +25,10 @@ public class App{
 				case 4: PrototypePattern.PrintRecords();	AppOptions.pressToContinue(); break;
 				case 5: ObjectPoolPattern.TestObjectPool();	AppOptions.pressToContinue(); break;
 				case 6: Adapter.GetCreditCard();			AppOptions.pressToContinue(); break;
-				case 7: break;
-				case 8: break;
-				case 9: break;
-				case 10: break;
+				case 7: Lists.printArrayList();				AppOptions.pressToContinue(); break;
+				case 8: Lists.printLinkedList();			AppOptions.pressToContinue(); break;
+				case 9: Lists.printVector();				AppOptions.pressToContinue(); break;
+				case 10: Lists.printStack();				AppOptions.pressToContinue(); break;
 
 				default: System.out.println("INVALID OPTION"); break;
 				}
