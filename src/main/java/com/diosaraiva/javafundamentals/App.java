@@ -30,7 +30,7 @@ public class App{
 				case 9: Lists.printVector();				AppOptions.pressToContinue(); break;
 				case 10: Lists.printStack();				AppOptions.pressToContinue(); break;
 
-				default: System.out.println("INVALID OPTION"); break;
+				default: System.out.println("INVALID OPTION\n"); break;
 				}
 			}
 		} catch (Exception e){

@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.Set;
 
 public class AppOptions{
 	public static Map<Integer,String> getOptionList(){
@@ -26,7 +28,9 @@ public class AppOptions{
 	public static int getUserOption(){
 		System.out.println("----------------[ AVAILABLE OUTPUTS ]----------------");
 
-		for(var item : getOptionList().entrySet()){
+		Set<Entry<Integer, String>> optionList = getOptionList().entrySet();
+		
+		for(var item : optionList){
 			System.out.println(item.getKey()+". "+item.getValue());
 		}
 		System.out.println("\n0. EXIT PROGRAM");
@@ -44,7 +48,7 @@ public class AppOptions{
 		}
 
 		if(option==0) System.out.println("\n----------------[ EXITING PROGRAM ]----------------");
-		else System.out.println("\n----------------[ OUTPUT: OPTION <" + option + "> ]----------------");
+		else System.out.println("\n----------------[ OUTPUT: <" + option + ". " + getOptionList().get(option) + "> ]----------------");
 
 		return option;
 	}
