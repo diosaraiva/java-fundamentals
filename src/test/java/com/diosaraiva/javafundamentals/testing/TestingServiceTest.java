@@ -7,17 +7,15 @@ import org.junit.jupiter.api.Test;
 class TestingServiceTest{
 	@Test
 	void addTest(){
-		TestingService demoService = new TestingService();
+		TestingService testService = new TestingService();
 		
-		int result = demoService.add(100, 200);
-		assertEquals(300, result);
+		assertEquals(300, testService.add(100, 200));
 	}
 	
 	@Test
 	void concatTest(){
-		TestingService demoService = new TestingService();
+		TestingService testService = new TestingService();
 		
-		String result = demoService.concat("a", "b");
-		assertEquals("ab", result);
+		assertEquals("ab", testService.concat("a", "b"));
 	}
 }

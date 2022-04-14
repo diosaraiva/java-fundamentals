@@ -1,23 +1,23 @@
 package com.diosaraiva.javafundamentals;
 
-import java.io.IOException;
-
 import com.diosaraiva.javafundamentals.designpatterns.creational.abstractfactory.AbstractFactory;
 import com.diosaraiva.javafundamentals.designpatterns.creational.builder.Builder;
 import com.diosaraiva.javafundamentals.designpatterns.creational.factorymethod.FactoryMethod;
 import com.diosaraiva.javafundamentals.designpatterns.creational.objectpool.ObjectPoolPattern;
 import com.diosaraiva.javafundamentals.designpatterns.creational.prototype.PrototypePattern;
 import com.diosaraiva.javafundamentals.designpatterns.structural.adapter.Adapter;
+import com.diosaraiva.javafundamentals.designpatterns.structural.bridge.Bridge;
+import com.diosaraiva.javafundamentals.designpatterns.structural.composite.Composite;
 import com.diosaraiva.javafundamentals.interfaces.collection.Lists;
 
 public class App{
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args){
 		boolean loop = true;
 
 		try {
 			while(loop){
 				switch (AppOptions.getUserOption()){
-				case 0: loop = false; break;
+				case 0: loop = false; 						AppOptions.exitProgram(); break;
 
 				case 1: FactoryMethod.GenerateBill();		AppOptions.pressToContinue(); break;
 				case 2: Builder.BuildCds(); 				AppOptions.pressToContinue(); break;
@@ -29,12 +29,15 @@ public class App{
 				case 8: Lists.printLinkedList();			AppOptions.pressToContinue(); break;
 				case 9: Lists.printVector();				AppOptions.pressToContinue(); break;
 				case 10: Lists.printStack();				AppOptions.pressToContinue(); break;
+				case 11: Bridge.askQuestions();				AppOptions.pressToContinue(); break;
+				case 12: Composite.getCashiers();			AppOptions.pressToContinue(); break;
 
-				default: System.out.println("INVALID OPTION\n"); break;
+				default: AppOptions.getInvalidOption(); break;
 				}
 			}
 		} catch (Exception e){
-			System.out.println("\n[ERROR: " + e.toString() + "]");
+			AppOptions.getError(e);
+			AppOptions.exitProgram();
 		}
 	}
-}    
+}
