@@ -10,6 +10,7 @@ import com.diosaraiva.javafundamentals.designpatterns.structural.bridge.Bridge;
 import com.diosaraiva.javafundamentals.designpatterns.structural.composite.Composite;
 import com.diosaraiva.javafundamentals.designpatterns.structural.decorator.Decorator;
 import com.diosaraiva.javafundamentals.designpatterns.structural.facade.Facade;
+import com.diosaraiva.javafundamentals.designpatterns.structural.proxy.Proxy;
 import com.diosaraiva.javafundamentals.interfaces.collection.Lists;
 
 public class App{
@@ -35,6 +36,7 @@ public class App{
 				case 12: Composite.getCashiers();			AppOptions.pressToContinue(); break;
 				case 13: Decorator.orderFood();				AppOptions.pressToContinue(); break;
 				case 14: Facade.getMobileShop();			AppOptions.pressToContinue(); break;
+				case 15: Proxy.grantAccess();				AppOptions.pressToContinue(); break;
 
 				default: AppOptions.getInvalidOption(); break;
 				}
