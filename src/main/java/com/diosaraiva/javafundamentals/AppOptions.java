@@ -71,6 +71,7 @@ public class AppOptions{
 	}
 
 	public static void exitProgram(){
-		System.out.println("\n----------------[ EXITING PROGRAM: " + new Date().toString() + " ]----------------\n");
+		System.out.println("\n----------------[ EXITING PROGRAM ]----------------");
+		System.out.print(new Date().toString());
 	}
 }
