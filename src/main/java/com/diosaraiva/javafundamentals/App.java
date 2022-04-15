@@ -12,6 +12,7 @@ import com.diosaraiva.javafundamentals.designpatterns.structural.decorator.Decor
 import com.diosaraiva.javafundamentals.designpatterns.structural.facade.Facade;
 import com.diosaraiva.javafundamentals.designpatterns.structural.proxy.Proxy;
 import com.diosaraiva.javafundamentals.interfaces.collection.Lists;
+import com.diosaraiva.javafundamentals.properties.PropertiesUtils;
 
 public class App{
 	public static void main(String[] args){
@@ -37,6 +38,7 @@ public class App{
 				case 13: Decorator.orderFood();				AppOptions.pressToContinue(); break;
 				case 14: Facade.getMobileShop();			AppOptions.pressToContinue(); break;
 				case 15: Proxy.grantAccess();				AppOptions.pressToContinue(); break;
+				case 16: PropertiesUtils.ReadProperties();	AppOptions.pressToContinue(); break;
 
 				default: AppOptions.getInvalidOption(); break;
 				}

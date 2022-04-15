@@ -2,27 +2,15 @@ package com.diosaraiva.javafundamentals;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Properties;
 import java.util.Scanner;
 import java.util.Set;
 
 public class AppOptions{
 	public static Map<Integer,String> getOptionList(){
-		Properties prop = new Properties();
-
-		/*
-		try {
-			//prop.load(new FileInputStream("src/main/resources/app.properties"));
-			prop.load(App.class.getResourceAsStream("resources/app.properties"));
-			System.out.println(prop.toString());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
-
-
 		Map<Integer, String> optionList = new HashMap<Integer, String>();
 		optionList.put(1, "design-patterns/creational/factorymethod");
 		optionList.put(2, "design-patterns/creational/builder");
@@ -39,19 +27,19 @@ public class AppOptions{
 		optionList.put(13, "design-patterns/structural/decorator");
 		optionList.put(14, "design-patterns/structural/facade");
 		optionList.put(15, "design-patterns/structural/proxy");
+		optionList.put(16, "properties/read");
 
 		return optionList;
 	}
 
 	public static int getUserOption(){
-		System.out.println("----------------[ AVAILABLE OUTPUTS ]----------------");
-
 		Set<Entry<Integer, String>> optionList = getOptionList().entrySet();
+		System.out.println("----------------[ AVAILABLE OUTPUTS: " + optionList.size() + " OPTIONS ]----------------");
 		optionList.stream().forEach(item -> System.out.println(item.getKey() + ". " + item.getValue()));
 
 		System.out.println("\n0. EXIT PROGRAM");
 
-		System.out.print("\nSelect your output option: ");
+		System.out.print("\nEnter output option number: ");
 
 		int option;
 		try{
@@ -83,6 +71,6 @@ public class AppOptions{
 	}
 
 	public static void exitProgram(){
-		System.out.println("\n----------------[ EXITING PROGRAM ]----------------\n");
+		System.out.println("\n----------------[ EXITING PROGRAM: " + new Date().toString() + " ]----------------\n");
 	}
 }
