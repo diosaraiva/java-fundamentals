@@ -34,10 +34,11 @@ public class AppOptions{
 		optionList.put(8, "interfaces/collection/linkedlist");
 		optionList.put(9, "interfaces/collection/vector");
 		optionList.put(10, "interfaces/collection/stack");
-		optionList.put(11, "design-patterns/structural/adapter");
+		optionList.put(11, "design-patterns/structural/bridge");
 		optionList.put(12, "design-patterns/structural/composite");
 		optionList.put(13, "design-patterns/structural/decorator");
 		optionList.put(14, "design-patterns/structural/facade");
+		optionList.put(15, "design-patterns/structural/proxy");
 
 		return optionList;
 	}

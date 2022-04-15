@@ -1,4 +1,4 @@
-package com.diosaraiva.javafundamentals.utils.properties;
+package com.diosaraiva.javafundamentals.properties;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,14 +10,12 @@ import com.diosaraiva.javafundamentals.App;
  Load a properties file from classpath
  Load a properties file config.properties from project classpath, and retrieved the property value.
  */
-public class PropertiesUtil{
+public class PropertiesUtils{
 	public static void ReadProperties(){
-
 		try (InputStream input = App.class.getClassLoader().getResourceAsStream("app.properties")){
-
 			Properties prop = new Properties();
 
-			if (input == null) {
+			if (input == null){
 				System.out.println("Sorry, unable to find config.properties");
 				return;
 			}
