@@ -21,7 +21,7 @@ package com.diosaraiva.javafundamentals.designpatterns.structural.adapter;
  */
 public class Adapter{
 	public static void GetCreditCard(){  
-		CreditCard targetInterface=new BankCustomer();  
+		CreditCard targetInterface = new BankCustomer();  
 		targetInterface.giveBankDetails();
 		
 		System.out.println(targetInterface.getCreditCard());  

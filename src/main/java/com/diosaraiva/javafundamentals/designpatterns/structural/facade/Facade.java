@@ -23,35 +23,29 @@ import java.io.InputStreamReader;
  https://www.javatpoint.com/facade-pattern
  */
 public class Facade{
-	public static void getMobileShop(){
+	public static void getMobileShop() throws NumberFormatException, IOException{
 		int choice;
 
-		try {
-			do{
-				System.out.print("========= Mobile Shop ============ \n");  
-				System.out.print("            1. IPHONE.              \n");  
-				System.out.print("            2. SAMSUNG.              \n");  
-				System.out.print("            3. BLACKBERRY.            \n");  
-				System.out.print("            4. Exit.                     \n");  
-				System.out.print("Enter your choice: ");  
+		do{
+			System.out.print("========= Mobile Shop ============ \n");  
+			System.out.print("            1. IPHONE.              \n");  
+			System.out.print("            2. SAMSUNG.              \n");  
+			System.out.print("            3. BLACKBERRY.            \n");  
+			System.out.print("            4. Exit.                     \n");  
+			System.out.print("Enter your choice: ");  
 
-				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-				choice = Integer.parseInt(br.readLine());
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			choice = Integer.parseInt(br.readLine());
 
-				ShopKeeper sk=new ShopKeeper(); 
+			ShopKeeper sk=new ShopKeeper(); 
 
-				switch (choice){
-				case 1: sk.iphoneSale(); break;  
-				case 2: sk.samsungSale(); break;    
-				case 3: sk.blackberrySale(); break;     
+			switch (choice){
+			case 1: sk.iphoneSale(); break;  
+			case 2: sk.samsungSale(); break;    
+			case 3: sk.blackberrySale(); break;     
 
-				default: System.out.println("Nothing You purchased"); 
-				}
-			} while(choice!=4);
-		} catch (NumberFormatException e){
-			e.printStackTrace();
-		} catch (IOException e){
-			e.printStackTrace();
-		}  
+			default: System.out.println("Nothing You purchased"); 
+			}
+		} while(choice!=4);
 	}  
 }

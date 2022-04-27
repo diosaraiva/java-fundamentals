@@ -1,12 +1,11 @@
 package com.diosaraiva.javafundamentals;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
-import java.util.Set;
 
 import com.diosaraiva.javafundamentals.designpatterns.creational.abstractfactory.AbstractFactory;
 import com.diosaraiva.javafundamentals.designpatterns.creational.builder.Builder;
@@ -20,83 +19,81 @@ import com.diosaraiva.javafundamentals.designpatterns.structural.decorator.Decor
 import com.diosaraiva.javafundamentals.designpatterns.structural.facade.Facade;
 import com.diosaraiva.javafundamentals.designpatterns.structural.proxy.Proxy;
 import com.diosaraiva.javafundamentals.interfaces.collection.Lists;
-import com.diosaraiva.javafundamentals.properties.PropertiesUtils;
+import com.diosaraiva.javafundamentals.utils.properties.PropertiesUtils;
 
 public class AppOptions{
 	public static boolean runConsole(){
-		Set<Entry<Integer, String>> optionList = getOptionList().entrySet();
-		System.out.println("----------------[ AVAILABLE OUTPUTS: " + optionList.size() + " OPTIONS ]----------------");
-		optionList.stream().forEach(item -> System.out.println(item.getKey() + ". " + item.getValue()));
+		Map<Integer,String> optionList = getOptionList();
 
-		System.out.println("\n0. EXIT PROGRAM");
+		try{		
+			String option = readUserOption();
 
-		System.out.print("\nEnter output option number: ");
+			if(option.equals("0")){
+				displayExitProgram();
 
-		try{
-			switch (readUserOption()){
-			case 0:	exitProgram(); return false;
-
-			case 1: FactoryMethod.GenerateBill();		pressToContinue(); return true;
-			case 2: Builder.BuildCds(); 				pressToContinue(); return true;
-			case 3: AbstractFactory.GetLoan();			pressToContinue(); return true;
-			case 4: PrototypePattern.PrintRecords();	pressToContinue(); return true;
-			case 5: ObjectPoolPattern.TestObjectPool();	pressToContinue(); return true;
-			case 6: Adapter.GetCreditCard();			pressToContinue(); return true;
-			case 7: Lists.printArrayList();				pressToContinue(); return true;
-			case 8: Lists.printLinkedList();			pressToContinue(); return true;
-			case 9: Lists.printVector();				pressToContinue(); return true;
-			case 10: Lists.printStack();				pressToContinue(); return true;
-			case 11: Bridge.askQuestions();				pressToContinue(); return true;
-			case 12: Composite.getCashiers();			pressToContinue(); return true;
-			case 13: Decorator.orderFood();				pressToContinue(); return true;
-			case 14: Facade.getMobileShop();			pressToContinue(); return true;
-			case 15: Proxy.grantAccess();				pressToContinue(); return true;
-			case 16: PropertiesUtils.ReadProperties();	pressToContinue(); return true;
-
-			default: getInvalidOption(); return true;
+				return false;
 			}
+
+			option = optionList.get(Integer.parseInt(option));
+
+			if(option!=null){				
+				switch (AppOptionsEnum.getEnum(option)){
+
+				case PATTERNS_ABSTRACT: 	AbstractFactory.GetLoan();			break;
+				case PATTERNS_BUILDER:		Builder.BuildCds(); 				break;
+				case PATTERNS_FACTORY:		FactoryMethod.GenerateBill();		break;
+				case PATTERNS_OBJECTPOOL: 	ObjectPoolPattern.TestObjectPool();	break;
+				case PATTERNS_PROTOTYPE: 	PrototypePattern.PrintRecords();	break;
+				case PATTERNS_ADAPTER: 		Adapter.GetCreditCard();			break;
+				case PATTERNS_BRIDGE: 		Bridge.askQuestions();				break;
+				case PATTERNS_COMPOSITE: 	Composite.getCashiers();			break;
+				case PATTERNS_DECORATOR: 	Decorator.orderFood();				break;
+				case PATTERNS_FACADE: 		Facade.getMobileShop();				break;
+				case PATTERNS_PROXY: 		Proxy.grantAccess();				break;
+				case COLLECTION_ARRAYLIST: 	Lists.printArrayList();				break;
+				case COLLECTION_LINKEDLIST: Lists.printLinkedList();			break;
+				case COLLECTION_STACK: 		Lists.printStack();					break;
+				case COLLECTION_VECTOR: 	Lists.printVector();				break;
+				case UTIL_PROPERTIESREAD: 	PropertiesUtils.ReadProperties();	break;
+
+				}
+			}
+			else displayInvalidOption();
 		} catch (Exception e){
-			getError(e);
-			return true;
-		}
+			displayError(e);
+		} 
+
+		pressToContinue();
+
+		return true;
 	}
 
 	private static Map<Integer,String> getOptionList(){
 		Map<Integer, String> optionList = new HashMap<Integer, String>();
+
 		int i = 0;
-		optionList.put(++i, "design-patterns/creational/factorymethod");
-		optionList.put(++i, "design-patterns/creational/builder");
-		optionList.put(++i, "design-patterns/creational/abstractfactory");
-		optionList.put(++i, "design-patterns/creational/prototype");
-		optionList.put(++i, "design-patterns/creational/objectpool");
-		optionList.put(++i, "design-patterns/structural/adapter");
-		optionList.put(++i, "interfaces/collection/arraylist");
-		optionList.put(++i, "interfaces/collection/linkedlist");
-		optionList.put(++i, "interfaces/collection/vector");
-		optionList.put(++i, "interfaces/collection/stack");
-		optionList.put(++i, "design-patterns/structural/bridge");
-		optionList.put(++i, "design-patterns/structural/composite");
-		optionList.put(++i, "design-patterns/structural/decorator");
-		optionList.put(++i, "design-patterns/structural/facade");
-		optionList.put(++i, "design-patterns/structural/proxy");
-		optionList.put(++i, "properties/read");
+		for (AppOptionsEnum appOptionsEnum : AppOptionsEnum.values()){
+			optionList.put(++i, appOptionsEnum.getEnumOption());
+		}
+
+		System.out.println("----------------[ AVAILABLE OUTPUTS: " + optionList.size() + " OPTIONS ]----------------");
+		optionList.entrySet().forEach(item -> System.out.println(item.getKey() + ". " + item.getValue()));
+		System.out.println("\n0. EXIT PROGRAM");
 
 		return optionList;
 	}
 
-	private static int readUserOption(){
-		try{
-			//Read user input
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			int option = Integer.parseInt(br.readLine());
-			
-			if(option!=0) System.out.println("\n----------------[ OUTPUT: <" + option + ". " + getOptionList().get(option) + "> ]----------------");
-			
-			return option;
-		} catch (Exception e){
-			//if error, invalid option!
-			return 999;
-		}
+	private static String readUserOption() throws IOException{
+		System.out.print("\nEnter output option number: ");
+
+		String userOption = "";
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		userOption = br.readLine();
+
+		if(!userOption.equals("0")) System.out.println("\n----------------[ OUTPUT: <" + userOption + ". " + getOptionList().get(Integer.parseInt(userOption)) + "> ]----------------");
+
+		return userOption;
 	}
 
 	private static void pressToContinue(){
@@ -105,15 +102,15 @@ public class AppOptions{
 		s.nextLine();
 	}
 
-	private static void getInvalidOption(){
-		System.out.println("INVALID OPTION\n");
-	}
-
-	private static void getError(Exception e){
-		System.out.println("\n[ ERROR: " + e.toString() + " ]\n");
-	}
-
-	private static void exitProgram(){
+	private static void displayExitProgram(){
 		System.out.println("\n----------------[ EXITING PROGRAM ]----------------");
+	}
+
+	private static void displayError(Exception e){
+		System.out.println("\n[ ERROR: " + e.toString() + " ]");
+	}
+
+	private static void displayInvalidOption(){
+		System.out.println("INVALID OPTION");
 	}
 }
