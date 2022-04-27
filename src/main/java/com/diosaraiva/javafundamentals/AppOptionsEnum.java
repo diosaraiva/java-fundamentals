@@ -16,7 +16,8 @@ public enum AppOptionsEnum{
 	COLLECTION_LINKEDLIST	("interfaces/collection/linkedlist"),
 	COLLECTION_STACK		("interfaces/collection/stack"),
 	COLLECTION_VECTOR		("interfaces/collection/vector"),
-	UTILS_PROPERTIESREAD	("utils/properties/read");
+	UTILS_PROPERTIESREAD	("utils/properties/read"),
+	UTILS_REGEXISNUMERIC	("utils/regex/isnumeric");
 
 	private final String enumOption;
 

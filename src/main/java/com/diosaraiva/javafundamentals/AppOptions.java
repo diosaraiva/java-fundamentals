@@ -20,6 +20,7 @@ import com.diosaraiva.javafundamentals.designpatterns.structural.facade.Facade;
 import com.diosaraiva.javafundamentals.designpatterns.structural.proxy.Proxy;
 import com.diosaraiva.javafundamentals.interfaces.collection.Lists;
 import com.diosaraiva.javafundamentals.utils.properties.PropertiesUtils;
+import com.diosaraiva.javafundamentals.utils.regex.RegexUtils;
 
 public class AppOptions{
 	public static boolean runConsole(){
@@ -57,6 +58,7 @@ public class AppOptions{
 				case COLLECTION_STACK: 		Lists.printStack();					break;
 				case COLLECTION_VECTOR: 	Lists.printVector();				break;
 				case UTILS_PROPERTIESREAD: 	PropertiesUtils.ReadProperties();	break;
+				case UTILS_REGEXISNUMERIC: 	RegexUtils.testIsNumeric();			break;
 
 				}
 			}
@@ -77,8 +79,9 @@ public class AppOptions{
 
 		int i = 0;
 		for (AppOptionsEnum appOptionsEnum : AppOptionsEnum.values()){
-			optionList.put(++i, appOptionsEnum.getEnumOption());
-			System.out.println(i + ". " + appOptionsEnum.getEnumOption());
+			String appOption = appOptionsEnum.getEnumOption();
+			optionList.put(++i, appOption);
+			System.out.println(i + ". " + appOption);
 		}
 
 		System.out.println("\n0. EXIT PROGRAM");
