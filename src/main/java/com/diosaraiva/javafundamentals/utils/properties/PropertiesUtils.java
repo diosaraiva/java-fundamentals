@@ -7,8 +7,7 @@ import java.util.Properties;
 import com.diosaraiva.javafundamentals.App;
 
 public class PropertiesUtils{
-	public static void ReadProperties(){
-		try{
+	public static void ReadProperties() throws IOException{
 			String path = "app.properties";
 			
 			InputStream input = App.class.getClassLoader().getResourceAsStream(path);
@@ -23,8 +22,5 @@ public class PropertiesUtils{
 			System.out.println(prop.getProperty("db.user"));
 			System.out.println(prop.getProperty("db.password"));
 			System.out.println(prop.getProperty("db.string"));
-		} catch (IOException e){
-			e.printStackTrace();
-		}
 	}
 }

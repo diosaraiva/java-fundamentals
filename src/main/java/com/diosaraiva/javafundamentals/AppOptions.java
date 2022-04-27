@@ -28,15 +28,17 @@ public class AppOptions{
 		try{		
 			String option = readUserOption();
 
-			if(option.equals("0")){
+			if(Integer.parseInt(option) == 0){
 				displayExitProgram();
 
 				return false;
 			}
 
+			System.out.print("\n----------------[ OUTPUT: <" + option);
 			option = optionList.get(Integer.parseInt(option));
+			System.out.println(". " + option + "> ]----------------");
 
-			if(option!=null){				
+			if(option != null){				
 				switch (AppOptionsEnum.getEnum(option)){
 
 				case PATTERNS_ABSTRACT: 	AbstractFactory.GetLoan();			break;
@@ -54,7 +56,7 @@ public class AppOptions{
 				case COLLECTION_LINKEDLIST: Lists.printLinkedList();			break;
 				case COLLECTION_STACK: 		Lists.printStack();					break;
 				case COLLECTION_VECTOR: 	Lists.printVector();				break;
-				case UTIL_PROPERTIESREAD: 	PropertiesUtils.ReadProperties();	break;
+				case UTILS_PROPERTIESREAD: 	PropertiesUtils.ReadProperties();	break;
 
 				}
 			}
@@ -71,13 +73,14 @@ public class AppOptions{
 	private static Map<Integer,String> getOptionList(){
 		Map<Integer, String> optionList = new HashMap<Integer, String>();
 
+		System.out.println("----------------[ AVAILABLE OUTPUTS: " + AppOptionsEnum.values().length + " OPTIONS ]----------------");
+
 		int i = 0;
 		for (AppOptionsEnum appOptionsEnum : AppOptionsEnum.values()){
 			optionList.put(++i, appOptionsEnum.getEnumOption());
+			System.out.println(i + ". " + appOptionsEnum.getEnumOption());
 		}
 
-		System.out.println("----------------[ AVAILABLE OUTPUTS: " + optionList.size() + " OPTIONS ]----------------");
-		optionList.entrySet().forEach(item -> System.out.println(item.getKey() + ". " + item.getValue()));
 		System.out.println("\n0. EXIT PROGRAM");
 
 		return optionList;
@@ -86,14 +89,9 @@ public class AppOptions{
 	private static String readUserOption() throws IOException{
 		System.out.print("\nEnter output option number: ");
 
-		String userOption = "";
-
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		userOption = br.readLine();
 
-		if(!userOption.equals("0")) System.out.println("\n----------------[ OUTPUT: <" + userOption + ". " + getOptionList().get(Integer.parseInt(userOption)) + "> ]----------------");
-
-		return userOption;
+		return br.readLine();
 	}
 
 	private static void pressToContinue(){
