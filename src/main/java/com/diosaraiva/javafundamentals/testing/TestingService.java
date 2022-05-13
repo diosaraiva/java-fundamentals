@@ -6,6 +6,9 @@ public class TestingService{
 	}
 
 	public String concat(String a, String b){
-		return a+b;
+		return new StringBuilder()
+				.append(a)
+				.append(b)
+				.toString();
 	}
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class RegexUtils{
-	public static boolean isNumeric(String strNum){		
+	public static Boolean isNumeric(String strNum){		
 		if (strNum == null) return false;
 
 		Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
@@ -19,10 +19,14 @@ public class RegexUtils{
 		testList.add("-1");
 		testList.add("2.0");
 		testList.add("abc");
-		testList.add("");
+		testList.add(" ");
 
 		testList.forEach(test -> {
-			System.out.println("String: " + test + ": " + isNumeric(test));
+			System.out.println(new StringBuilder()
+					.append("String: [")
+					.append(test)
+					.append("]\t")
+					.append(isNumeric(test)));
 		});
 	}
 }

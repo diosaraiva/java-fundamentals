@@ -19,6 +19,7 @@ import com.diosaraiva.javafundamentals.designpatterns.structural.decorator.Decor
 import com.diosaraiva.javafundamentals.designpatterns.structural.facade.Facade;
 import com.diosaraiva.javafundamentals.designpatterns.structural.proxy.Proxy;
 import com.diosaraiva.javafundamentals.interfaces.collection.Lists;
+import com.diosaraiva.javafundamentals.interfaces.map.Maps;
 import com.diosaraiva.javafundamentals.utils.properties.PropertiesUtils;
 import com.diosaraiva.javafundamentals.utils.regex.RegexUtils;
 
@@ -35,9 +36,14 @@ public class AppOptions{
 				return false;
 			}
 
-			System.out.print("\n----------------[ OUTPUT: <" + option);
+			System.out.print(new StringBuilder()
+					.append("\n----------------[ OUTPUT: <")
+					.append(option));
 			option = optionList.get(Integer.parseInt(option));
-			System.out.println(". " + option + "> ]----------------");
+			System.out.println(new StringBuilder()
+					.append(". ")
+					.append(option)
+					.append("> ]----------------"));
 
 			if(option != null){				
 				switch (AppOptionsEnum.getEnum(option)){
@@ -59,6 +65,12 @@ public class AppOptions{
 				case COLLECTION_VECTOR: 	Lists.printVector();				break;
 				case UTILS_PROPERTIESREAD: 	PropertiesUtils.ReadProperties();	break;
 				case UTILS_REGEXISNUMERIC: 	RegexUtils.testIsNumeric();			break;
+				case MAP_HASHMAP:			Maps.printHashMap();				break;
+				case MAP_HASHTABLE:			Maps.printHashTable();				break;
+				case MAP_LINKEDHASHMAP:		Maps.printLinkedHashMap();			break;
+				case MAP_PROPERTIES:		Maps.printProperties();				break;
+				case MAP_TREEMAP:			Maps.printTreeMap();				break;
+				case MAP_WEAKHASHMAP:		Maps.printWeakHashMap();			break;
 
 				}
 			}
@@ -75,13 +87,19 @@ public class AppOptions{
 	private static Map<Integer,String> getOptionList(){
 		Map<Integer, String> optionList = new HashMap<Integer, String>();
 
-		System.out.println("----------------[ AVAILABLE OUTPUTS: " + AppOptionsEnum.values().length + " OPTIONS ]----------------");
+		System.out.println(new StringBuilder()
+				.append("----------------[ AVAILABLE OUTPUTS: ")
+				.append(AppOptionsEnum.values().length)
+				.append(" OPTIONS ]----------------"));
 
 		int i = 0;
 		for (AppOptionsEnum appOptionsEnum : AppOptionsEnum.values()){
 			String appOption = appOptionsEnum.getEnumOption();
 			optionList.put(++i, appOption);
-			System.out.println(i + ". " + appOption);
+			System.out.println(new StringBuilder()
+					.append(i)
+					.append(". ")
+					.append(appOption));
 		}
 
 		System.out.println("\n0. EXIT PROGRAM");
@@ -108,7 +126,10 @@ public class AppOptions{
 	}
 
 	private static void displayError(Exception e){
-		System.out.println("\n[ ERROR: " + e.toString() + " ]");
+		System.out.println(new StringBuilder()
+				.append("\n[ ERROR: ")
+				.append(e.toString())
+				.append(" ]"));
 	}
 
 	private static void displayInvalidOption(){

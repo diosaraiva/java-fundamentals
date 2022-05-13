@@ -17,7 +17,13 @@ public enum AppOptionsEnum{
 	COLLECTION_STACK		("interfaces/collection/stack"),
 	COLLECTION_VECTOR		("interfaces/collection/vector"),
 	UTILS_PROPERTIESREAD	("utils/properties/read"),
-	UTILS_REGEXISNUMERIC	("utils/regex/isnumeric");
+	UTILS_REGEXISNUMERIC	("utils/regex/isnumeric"),
+	MAP_HASHMAP				("map/maps/hashmap"),
+	MAP_HASHTABLE			("map/maps/hashtable"),
+	MAP_LINKEDHASHMAP		("map/maps/linkedhashmap"),
+	MAP_PROPERTIES			("map/maps/properties"),
+	MAP_TREEMAP				("map/maps/treemap"),
+	MAP_WEAKHASHMAP			("map/maps/weakhashmap");
 
 	private final String enumOption;
 

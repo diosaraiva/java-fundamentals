@@ -26,7 +26,6 @@
 		<maven.surefire>3.0.0-M5</maven.surefire>
 		<maven.jar>3.2.2</maven.jar>
 		<maven.install>3.0.0-M1</maven.install>
-		<properties.maven>1.1.0</properties.maven>
 	</properties>
 
 	<dependencies>
