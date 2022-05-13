@@ -1,29 +1,84 @@
 package com.diosaraiva.javafundamentals;
 
+import java.io.IOException;
+
+import com.diosaraiva.javafundamentals.designpatterns.behavioral.chainofresponsibility.ChainofResponsibility;
+import com.diosaraiva.javafundamentals.designpatterns.creational.abstractfactory.AbstractFactory;
+import com.diosaraiva.javafundamentals.designpatterns.creational.builder.Builder;
+import com.diosaraiva.javafundamentals.designpatterns.creational.factorymethod.FactoryMethod;
+import com.diosaraiva.javafundamentals.designpatterns.creational.objectpool.ObjectPoolPattern;
+import com.diosaraiva.javafundamentals.designpatterns.creational.prototype.PrototypePattern;
+import com.diosaraiva.javafundamentals.designpatterns.structural.adapter.Adapter;
+import com.diosaraiva.javafundamentals.designpatterns.structural.bridge.Bridge;
+import com.diosaraiva.javafundamentals.designpatterns.structural.composite.Composite;
+import com.diosaraiva.javafundamentals.designpatterns.structural.decorator.Decorator;
+import com.diosaraiva.javafundamentals.designpatterns.structural.facade.Facade;
+import com.diosaraiva.javafundamentals.designpatterns.structural.proxy.Proxy;
+import com.diosaraiva.javafundamentals.interfaces.collection.Lists;
+import com.diosaraiva.javafundamentals.interfaces.map.Maps;
+import com.diosaraiva.javafundamentals.utils.properties.PropertiesUtils;
+import com.diosaraiva.javafundamentals.utils.regex.RegexUtils;
+
 public enum AppOptionsEnum{
-	PATTERNS_ABSTRACT		("design-patterns/creational/abstractfactory"),
-	PATTERNS_BUILDER		("design-patterns/creational/builder"),
-	PATTERNS_FACTORY		("design-patterns/creational/factorymethod"),
-	PATTERNS_OBJECTPOOL		("design-patterns/creational/objectpool"),
-	PATTERNS_PROTOTYPE		("design-patterns/creational/prototype"),
-	PATTERNS_ADAPTER		("design-patterns/structural/adapter"),
-	PATTERNS_BRIDGE			("design-patterns/structural/bridge"),
-	PATTERNS_COMPOSITE		("design-patterns/structural/composite"),
-	PATTERNS_DECORATOR		("design-patterns/structural/decorator"),
-	PATTERNS_FACADE			("design-patterns/structural/facade"),
-	PATTERNS_PROXY			("design-patterns/structural/proxy"),
-	COLLECTION_ARRAYLIST	("interfaces/collection/arraylist"),
-	COLLECTION_LINKEDLIST	("interfaces/collection/linkedlist"),
-	COLLECTION_STACK		("interfaces/collection/stack"),
-	COLLECTION_VECTOR		("interfaces/collection/vector"),
-	UTILS_PROPERTIESREAD	("utils/properties/read"),
-	UTILS_REGEXISNUMERIC	("utils/regex/isnumeric"),
-	MAP_HASHMAP				("map/maps/hashmap"),
-	MAP_HASHTABLE			("map/maps/hashtable"),
-	MAP_LINKEDHASHMAP		("map/maps/linkedhashmap"),
-	MAP_PROPERTIES			("map/maps/properties"),
-	MAP_TREEMAP				("map/maps/treemap"),
-	MAP_WEAKHASHMAP			("map/maps/weakhashmap");
+	PATTERNS_CHAINOFRESPONSIBILITY	("design-patterns/behavioral/chainofresponsibility"),
+	PATTERNS_ABSTRACT				("design-patterns/creational/abstractfactory"),
+	PATTERNS_BUILDER				("design-patterns/creational/builder"),
+	PATTERNS_FACTORY				("design-patterns/creational/factorymethod"),
+	PATTERNS_OBJECTPOOL				("design-patterns/creational/objectpool"),
+	PATTERNS_PROTOTYPE				("design-patterns/creational/prototype"),
+	PATTERNS_ADAPTER				("design-patterns/structural/adapter"),
+	PATTERNS_BRIDGE					("design-patterns/structural/bridge"),
+	PATTERNS_COMPOSITE				("design-patterns/structural/composite"),
+	PATTERNS_DECORATOR				("design-patterns/structural/decorator"),
+	PATTERNS_FACADE					("design-patterns/structural/facade"),
+	PATTERNS_PROXY					("design-patterns/structural/proxy"),
+	COLLECTION_ARRAYLIST			("interfaces/collection/arraylist"),
+	COLLECTION_LINKEDLIST			("interfaces/collection/linkedlist"),
+	COLLECTION_STACK				("interfaces/collection/stack"),
+	COLLECTION_VECTOR				("interfaces/collection/vector"),
+	UTILS_PROPERTIESREAD			("utils/properties/read"),
+	UTILS_REGEXISNUMERIC			("utils/regex/isnumeric"),
+	MAP_HASHMAP						("map/maps/hashmap"),
+	MAP_HASHTABLE					("map/maps/hashtable"),
+	MAP_LINKEDHASHMAP				("map/maps/linkedhashmap"),
+	MAP_PROPERTIES					("map/maps/properties"),
+	MAP_TREEMAP						("map/maps/treemap"),
+	MAP_WEAKHASHMAP					("map/maps/weakhashmap");
+
+	public static void runOptionEnum(String option) throws IOException{
+		switch (getEnum(option)){
+
+		case PATTERNS_CHAINOFRESPONSIBILITY: 	ChainofResponsibility.GetChainInfo();	break;
+		case PATTERNS_ABSTRACT: 				AbstractFactory.GetLoan();				break;
+		case PATTERNS_BUILDER:					Builder.BuildCds(); 					break;
+		case PATTERNS_FACTORY:					FactoryMethod.GenerateBill();			break;
+		case PATTERNS_OBJECTPOOL: 				ObjectPoolPattern.TestObjectPool();		break;
+		case PATTERNS_PROTOTYPE: 				PrototypePattern.PrintRecords();		break;
+		case PATTERNS_ADAPTER: 					Adapter.GetCreditCard();				break;
+		case PATTERNS_BRIDGE: 					Bridge.askQuestions();					break;
+		case PATTERNS_COMPOSITE: 				Composite.getCashiers();				break;
+		case PATTERNS_DECORATOR: 				Decorator.orderFood();					break;
+		case PATTERNS_FACADE: 					Facade.getMobileShop();					break;
+		case PATTERNS_PROXY: 					Proxy.grantAccess();					break;
+		case COLLECTION_ARRAYLIST: 				Lists.printArrayList();					break;
+		case COLLECTION_LINKEDLIST: 			Lists.printLinkedList();				break;
+		case COLLECTION_STACK: 					Lists.printStack();						break;
+		case COLLECTION_VECTOR: 				Lists.printVector();					break;
+		case UTILS_PROPERTIESREAD: 				PropertiesUtils.ReadProperties();		break;
+		case UTILS_REGEXISNUMERIC: 				RegexUtils.testIsNumeric();				break;
+		case MAP_HASHMAP:						Maps.printHashMap();					break;
+		case MAP_HASHTABLE:						Maps.printHashTable();					break;
+		case MAP_LINKEDHASHMAP:					Maps.printLinkedHashMap();				break;
+		case MAP_PROPERTIES:					Maps.printProperties();					break;
+		case MAP_TREEMAP:						Maps.printTreeMap();					break;
+		case MAP_WEAKHASHMAP:					Maps.printWeakHashMap();				break;
+
+		}
+	}
+
+	public String getEnumOption(){
+		return enumOption;
+	}
 
 	private final String enumOption;
 
@@ -31,11 +86,7 @@ public enum AppOptionsEnum{
 		this.enumOption = enumOption;
 	}
 
-	public String getEnumOption(){
-		return enumOption;
-	}
-
-	public static AppOptionsEnum getEnum(String enumOption){
+	private static AppOptionsEnum getEnum(String enumOption){
 		for (AppOptionsEnum e : values()){
 			if (e.enumOption.equals(enumOption)) return e;
 		}
