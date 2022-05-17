@@ -3,6 +3,9 @@ package com.diosaraiva.javafundamentals;
 import java.io.IOException;
 
 import com.diosaraiva.javafundamentals.designpatterns.behavioral.chainofresponsibility.ChainofResponsibility;
+import com.diosaraiva.javafundamentals.designpatterns.behavioral.command.Command;
+import com.diosaraiva.javafundamentals.designpatterns.behavioral.interpreter.Interpreter;
+import com.diosaraiva.javafundamentals.designpatterns.behavioral.iterator.IteratorPattern;
 import com.diosaraiva.javafundamentals.designpatterns.creational.abstractfactory.AbstractFactory;
 import com.diosaraiva.javafundamentals.designpatterns.creational.builder.Builder;
 import com.diosaraiva.javafundamentals.designpatterns.creational.factorymethod.FactoryMethod;
@@ -21,6 +24,9 @@ import com.diosaraiva.javafundamentals.utils.regex.RegexUtils;
 
 public enum AppOptionsEnum{
 	PATTERNS_CHAINOFRESPONSIBILITY	("design-patterns/behavioral/chainofresponsibility"),
+	PATTERNS_COMMAND				("design-patterns/behavioral/command"),
+	PATTERNS_INTERPRETER			("design-patterns/behavioral/interpreter"),
+	PATTERNS_ITERATOR				("design-patterns/behavioral/iterator"),
 	PATTERNS_ABSTRACT				("design-patterns/creational/abstractfactory"),
 	PATTERNS_BUILDER				("design-patterns/creational/builder"),
 	PATTERNS_FACTORY				("design-patterns/creational/factorymethod"),
@@ -49,6 +55,9 @@ public enum AppOptionsEnum{
 		switch (getEnum(option)){
 
 		case PATTERNS_CHAINOFRESPONSIBILITY: 	ChainofResponsibility.GetChainInfo();	break;
+		case PATTERNS_COMMAND:				 	Command.OpenAndSave();					break;
+		case PATTERNS_INTERPRETER:			 	Interpreter.InfixToPostfix();			break;
+		case PATTERNS_ITERATOR:			 		IteratorPattern.PrintNames();			break;
 		case PATTERNS_ABSTRACT: 				AbstractFactory.GetLoan();				break;
 		case PATTERNS_BUILDER:					Builder.BuildCds(); 					break;
 		case PATTERNS_FACTORY:					FactoryMethod.GenerateBill();			break;
