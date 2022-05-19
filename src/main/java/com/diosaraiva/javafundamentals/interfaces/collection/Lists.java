@@ -62,6 +62,21 @@ public class Lists{
 
 		return list;
 	}
+	
+	public static void printAllLists(){
+		Integer i = 0;
+		System.out.println(new StringBuilder().append(++i).append(". ArrayList"));
+		printArrayList();
+
+		System.out.println(new StringBuilder().append(++i).append(". LinkedList"));
+		printLinkedList();
+
+		System.out.println(new StringBuilder().append(++i).append(". Vector"));
+		printVector();
+
+		System.out.println(new StringBuilder().append(++i).append(". Stack"));
+		printStack();
+	}
 
 	public static void printList(List list){
 		for(var item : list){

@@ -6,6 +6,7 @@ import com.diosaraiva.javafundamentals.designpatterns.behavioral.chainofresponsi
 import com.diosaraiva.javafundamentals.designpatterns.behavioral.command.Command;
 import com.diosaraiva.javafundamentals.designpatterns.behavioral.interpreter.Interpreter;
 import com.diosaraiva.javafundamentals.designpatterns.behavioral.iterator.IteratorPattern;
+import com.diosaraiva.javafundamentals.designpatterns.behavioral.mediator.Mediator;
 import com.diosaraiva.javafundamentals.designpatterns.creational.abstractfactory.AbstractFactory;
 import com.diosaraiva.javafundamentals.designpatterns.creational.builder.Builder;
 import com.diosaraiva.javafundamentals.designpatterns.creational.factorymethod.FactoryMethod;
@@ -27,6 +28,7 @@ public enum AppOptionsEnum{
 	PATTERNS_COMMAND				("design-patterns/behavioral/command"),
 	PATTERNS_INTERPRETER			("design-patterns/behavioral/interpreter"),
 	PATTERNS_ITERATOR				("design-patterns/behavioral/iterator"),
+	PATTERNS_MEDIATOR				("design-patterns/behavioral/mediator"),
 	PATTERNS_ABSTRACT				("design-patterns/creational/abstractfactory"),
 	PATTERNS_BUILDER				("design-patterns/creational/builder"),
 	PATTERNS_FACTORY				("design-patterns/creational/factorymethod"),
@@ -38,18 +40,10 @@ public enum AppOptionsEnum{
 	PATTERNS_DECORATOR				("design-patterns/structural/decorator"),
 	PATTERNS_FACADE					("design-patterns/structural/facade"),
 	PATTERNS_PROXY					("design-patterns/structural/proxy"),
-	COLLECTION_ARRAYLIST			("interfaces/collection/arraylist"),
-	COLLECTION_LINKEDLIST			("interfaces/collection/linkedlist"),
-	COLLECTION_STACK				("interfaces/collection/stack"),
-	COLLECTION_VECTOR				("interfaces/collection/vector"),
+	COLLECTION_LIST					("interfaces/collection/lists"),
+	MAP_MAPS						("interfaces/map/maps"),
 	UTILS_PROPERTIESREAD			("utils/properties/read"),
-	UTILS_REGEXISNUMERIC			("utils/regex/isnumeric"),
-	MAP_HASHMAP						("map/maps/hashmap"),
-	MAP_HASHTABLE					("map/maps/hashtable"),
-	MAP_LINKEDHASHMAP				("map/maps/linkedhashmap"),
-	MAP_PROPERTIES					("map/maps/properties"),
-	MAP_TREEMAP						("map/maps/treemap"),
-	MAP_WEAKHASHMAP					("map/maps/weakhashmap");
+	UTILS_REGEXISNUMERIC			("utils/regex/isnumeric");
 
 	public static void runOptionEnum(String option) throws IOException{
 		switch (getEnum(option)){
@@ -58,6 +52,7 @@ public enum AppOptionsEnum{
 		case PATTERNS_COMMAND:				 	Command.OpenAndSave();					break;
 		case PATTERNS_INTERPRETER:			 	Interpreter.InfixToPostfix();			break;
 		case PATTERNS_ITERATOR:			 		IteratorPattern.PrintNames();			break;
+		case PATTERNS_MEDIATOR:			 		Mediator.CallMediator();				break;
 		case PATTERNS_ABSTRACT: 				AbstractFactory.GetLoan();				break;
 		case PATTERNS_BUILDER:					Builder.BuildCds(); 					break;
 		case PATTERNS_FACTORY:					FactoryMethod.GenerateBill();			break;
@@ -69,18 +64,10 @@ public enum AppOptionsEnum{
 		case PATTERNS_DECORATOR: 				Decorator.orderFood();					break;
 		case PATTERNS_FACADE: 					Facade.getMobileShop();					break;
 		case PATTERNS_PROXY: 					Proxy.grantAccess();					break;
-		case COLLECTION_ARRAYLIST: 				Lists.printArrayList();					break;
-		case COLLECTION_LINKEDLIST: 			Lists.printLinkedList();				break;
-		case COLLECTION_STACK: 					Lists.printStack();						break;
-		case COLLECTION_VECTOR: 				Lists.printVector();					break;
+		case COLLECTION_LIST:	 				Lists.printAllLists();					break;
+		case MAP_MAPS:							Maps.printAllMaps();					break;
 		case UTILS_PROPERTIESREAD: 				PropertiesUtils.ReadProperties();		break;
 		case UTILS_REGEXISNUMERIC: 				RegexUtils.testIsNumeric();				break;
-		case MAP_HASHMAP:						Maps.printHashMap();					break;
-		case MAP_HASHTABLE:						Maps.printHashTable();					break;
-		case MAP_LINKEDHASHMAP:					Maps.printLinkedHashMap();				break;
-		case MAP_PROPERTIES:					Maps.printProperties();					break;
-		case MAP_TREEMAP:						Maps.printTreeMap();					break;
-		case MAP_WEAKHASHMAP:					Maps.printWeakHashMap();				break;
 
 		}
 	}

@@ -63,6 +63,27 @@ public class Maps{
 		return map;
 	}
 
+	public static void printAllMaps(){
+		Integer i = 0;
+		System.out.println(new StringBuilder().append(++i).append(". HashMap"));
+		printHashMap();
+
+		System.out.println(new StringBuilder().append(++i).append(". HashTable"));
+		printHashTable();
+
+		System.out.println(new StringBuilder().append(++i).append(". LinkedHashMap"));
+		printLinkedHashMap();
+
+		System.out.println(new StringBuilder().append(++i).append(". Properties"));
+		printProperties();
+
+		System.out.println(new StringBuilder().append(++i).append(". TreeMap"));
+		printTreeMap();
+
+		System.out.println(new StringBuilder().append(++i).append(". WeakHashMap"));
+		printWeakHashMap();
+	}
+
 	public static void printMap(Map<String,String> map){
 		for(Map.Entry<String,String> item : map.entrySet()){
 			System.out.println(item);
