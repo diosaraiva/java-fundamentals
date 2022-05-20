@@ -22,8 +22,8 @@ import java.io.InputStreamReader;
 
  https://www.javatpoint.com/facade-pattern
  */
-public class Facade{
-	public static void getMobileShop() throws NumberFormatException, IOException{
+public class FacadePattern{
+	public static void FacadePatternDemo() throws NumberFormatException, IOException{
 		int choice;
 
 		do{

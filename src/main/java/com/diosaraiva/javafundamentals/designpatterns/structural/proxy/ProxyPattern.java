@@ -22,9 +22,10 @@ package com.diosaraiva.javafundamentals.designpatterns.structural.proxy;
 
  https://www.javatpoint.com/proxy-pattern
  */
-public class Proxy{
-	public static void grantAccess(){
+public class ProxyPattern{
+	public static void ProxyPatternDemo(){
 		OfficeInternetAccess access = new ProxyInternetAccess("Ashwani Rajput");  
+
 		access.grantInternetAccess();  
 	}  
 }

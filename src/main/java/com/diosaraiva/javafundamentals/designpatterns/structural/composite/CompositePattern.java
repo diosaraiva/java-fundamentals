@@ -11,17 +11,17 @@ package com.diosaraiva.javafundamentals.designpatterns.structural.composite;
  - It provides greater flexibility than static inheritance.
  - It enhances the extensibility of the object, because changes are made by coding new classes.
  - It simplifies the coding by allowing you to develop a series of functionality from targeted classes instead of coding all of the behavior into the object.
- 
+
  Usage of Decorator Pattern
  It is used:
  - When you want to transparently and dynamically add responsibilities to objects without affecting other objects.
  - When you want to add responsibilities to an object that you may want to change in future.
  - Extending functionality by sub-classing is no longer practical.
- 
+
  https://www.javatpoint.com/decorator-pattern
  */
-public class Composite{
-	public static void getCashiers(){  
+public class CompositePattern{
+	public static void CompositePatternDemo(){  
 		Employee emp1=new Cashier(101,"Sohan Kumar", 20000.0);
 		Employee emp2=new Cashier(102,"Mohan Kumar", 25000.0);
 		Employee emp3=new Accountant(103,"Seema Mahiwal", 30000.0);

@@ -19,8 +19,8 @@ import java.io.InputStreamReader;
 
  https://www.javatpoint.com/composite-pattern
  */
-public class Decorator{
-	public static void orderFood() throws NumberFormatException, IOException{
+public class DecoratorPattern{
+	public static void DecoratorPatternDemo() throws NumberFormatException, IOException{
 
 		int  choice;  
 

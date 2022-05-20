@@ -14,6 +14,6 @@ package com.diosaraiva.javafundamentals.designpatterns.structural.flyweight;
  
  https://www.javatpoint.com/flyweight-pattern
  */
-public class Flyweight{
+public class FlyweightPattern{
 	//
 }

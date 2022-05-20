@@ -18,12 +18,12 @@ package com.diosaraiva.javafundamentals.designpatterns.creational.objectpool;
  Usage:
  - When an application requires objects which are expensive to create. Eg: there is a need of opening too many connections for the database then it takes too longer to create a new one and the database server will be overloaded.
  - When there are several clients who need the same resource at different times.
- 
+
  https://www.javatpoint.com/object-pool-pattern
  */
 public class ObjectPoolPattern{
-	public static void TestObjectPool(){   
-		ObjectPoolDemo op=new ObjectPoolDemo();  
+	public static void ObjectPoolPatternDemo(){   
+		ObjectPoolDemo op = new ObjectPoolDemo();  
 		op.setUp();  
 		op.tearDown();  
 		op.testObjectPool();  

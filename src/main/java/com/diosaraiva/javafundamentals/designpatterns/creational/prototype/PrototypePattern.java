@@ -25,7 +25,7 @@ import java.io.InputStreamReader;
  https://www.javatpoint.com/prototype-design-pattern
  */
 public class PrototypePattern{
-	public static void PrintRecords() throws NumberFormatException, IOException{  
+	public static void PrototypePatternDemo() throws NumberFormatException, IOException{  
 		BufferedReader br =new BufferedReader(new InputStreamReader(System.in));  
 		System.out.print("Enter Employee Id: ");  
 		int eid=Integer.parseInt(br.readLine());  

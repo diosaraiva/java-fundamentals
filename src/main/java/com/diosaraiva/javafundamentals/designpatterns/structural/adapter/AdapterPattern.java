@@ -19,11 +19,11 @@ package com.diosaraiva.javafundamentals.designpatterns.structural.adapter;
 
  https://www.javatpoint.com/adapter-pattern
  */
-public class Adapter{
-	public static void GetCreditCard(){  
+public class AdapterPattern{
+	public static void AdapterPatternDemo(){  
 		CreditCard targetInterface = new BankCustomer();  
 		targetInterface.giveBankDetails();
-		
+
 		System.out.println(targetInterface.getCreditCard());  
 	}   
 }

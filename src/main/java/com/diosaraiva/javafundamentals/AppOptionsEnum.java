@@ -10,21 +10,20 @@ import com.diosaraiva.javafundamentals.designpatterns.behavioral.observer.Observ
 import com.diosaraiva.javafundamentals.designpatterns.behavioral.state.StatePattern;
 import com.diosaraiva.javafundamentals.designpatterns.behavioral.strategy.StrategyPattern;
 import com.diosaraiva.javafundamentals.designpatterns.behavioral.template.TemplatePattern;
-import com.diosaraiva.javafundamentals.designpatterns.creational.abstractfactory.AbstractFactory;
-import com.diosaraiva.javafundamentals.designpatterns.creational.builder.Builder;
-import com.diosaraiva.javafundamentals.designpatterns.creational.factorymethod.FactoryMethod;
+import com.diosaraiva.javafundamentals.designpatterns.creational.abstractfactory.AbstractFactoryPattern;
+import com.diosaraiva.javafundamentals.designpatterns.creational.builder.BuilderPattern;
+import com.diosaraiva.javafundamentals.designpatterns.creational.factorymethod.FactoryMethodPattern;
 import com.diosaraiva.javafundamentals.designpatterns.creational.objectpool.ObjectPoolPattern;
 import com.diosaraiva.javafundamentals.designpatterns.creational.prototype.PrototypePattern;
-import com.diosaraiva.javafundamentals.designpatterns.structural.adapter.Adapter;
-import com.diosaraiva.javafundamentals.designpatterns.structural.bridge.Bridge;
-import com.diosaraiva.javafundamentals.designpatterns.structural.composite.Composite;
-import com.diosaraiva.javafundamentals.designpatterns.structural.decorator.Decorator;
-import com.diosaraiva.javafundamentals.designpatterns.structural.facade.Facade;
-import com.diosaraiva.javafundamentals.designpatterns.structural.proxy.Proxy;
+import com.diosaraiva.javafundamentals.designpatterns.creational.singleton.SingletonPattern;
+import com.diosaraiva.javafundamentals.designpatterns.structural.adapter.AdapterPattern;
+import com.diosaraiva.javafundamentals.designpatterns.structural.bridge.BridgePattern;
+import com.diosaraiva.javafundamentals.designpatterns.structural.composite.CompositePattern;
+import com.diosaraiva.javafundamentals.designpatterns.structural.decorator.DecoratorPattern;
+import com.diosaraiva.javafundamentals.designpatterns.structural.facade.FacadePattern;
+import com.diosaraiva.javafundamentals.designpatterns.structural.proxy.ProxyPattern;
 import com.diosaraiva.javafundamentals.interfaces.collection.Lists;
 import com.diosaraiva.javafundamentals.interfaces.map.Maps;
-import com.diosaraiva.javafundamentals.utils.properties.PropertiesUtils;
-import com.diosaraiva.javafundamentals.utils.regex.RegexUtils;
 
 public enum AppOptionsEnum{
 	PATTERNS_CHAINOFRESPONSIBILITY	("design-patterns/behavioral/chainofresponsibility"),
@@ -42,6 +41,7 @@ public enum AppOptionsEnum{
 	PATTERNS_FACTORY				("design-patterns/creational/factorymethod"),
 	PATTERNS_OBJECTPOOL				("design-patterns/creational/objectpool"),
 	PATTERNS_PROTOTYPE				("design-patterns/creational/prototype"),
+	PATTERNS_SINGLETON				("design-patterns/creational/singleton"),
 	PATTERNS_ADAPTER				("design-patterns/structural/adapter"),
 	PATTERNS_BRIDGE					("design-patterns/structural/bridge"),
 	PATTERNS_COMPOSITE				("design-patterns/structural/composite"),
@@ -49,9 +49,7 @@ public enum AppOptionsEnum{
 	PATTERNS_FACADE					("design-patterns/structural/facade"),
 	PATTERNS_PROXY					("design-patterns/structural/proxy"),
 	COLLECTION_LIST					("interfaces/collection/lists"),
-	MAP_MAPS						("interfaces/map/maps"),
-	UTILS_PROPERTIESREAD			("utils/properties/read"),
-	UTILS_REGEXISNUMERIC			("utils/regex/isnumeric");
+	MAP_MAPS						("interfaces/map/maps");
 
 	public static void runOptionEnum(String option) throws Exception{
 		switch (getEnum(option)){
@@ -66,21 +64,20 @@ public enum AppOptionsEnum{
 		case PATTERNS_STATE:			 		StatePattern.StatePatternDemo();							break;
 		case PATTERNS_STRATEGY:			 		StrategyPattern.StrategyPatternDemo();						break;
 		case PATTERNS_TEMPLATE:			 		TemplatePattern.TemplatePatternDemo();						break;
-		case PATTERNS_ABSTRACT: 				AbstractFactory.GetLoan();				break;
-		case PATTERNS_BUILDER:					Builder.BuildCds(); 					break;
-		case PATTERNS_FACTORY:					FactoryMethod.GenerateBill();			break;
-		case PATTERNS_OBJECTPOOL: 				ObjectPoolPattern.TestObjectPool();		break;
-		case PATTERNS_PROTOTYPE: 				PrototypePattern.PrintRecords();		break;
-		case PATTERNS_ADAPTER: 					Adapter.GetCreditCard();				break;
-		case PATTERNS_BRIDGE: 					Bridge.askQuestions();					break;
-		case PATTERNS_COMPOSITE: 				Composite.getCashiers();				break;
-		case PATTERNS_DECORATOR: 				Decorator.orderFood();					break;
-		case PATTERNS_FACADE: 					Facade.getMobileShop();					break;
-		case PATTERNS_PROXY: 					Proxy.grantAccess();					break;
-		case COLLECTION_LIST:	 				Lists.printAllLists();					break;
-		case MAP_MAPS:							Maps.printAllMaps();					break;
-		case UTILS_PROPERTIESREAD: 				PropertiesUtils.ReadProperties();		break;
-		case UTILS_REGEXISNUMERIC: 				RegexUtils.testIsNumeric();				break;
+		case PATTERNS_ABSTRACT: 				AbstractFactoryPattern.AbstractFactoryPatternDemo();		break;
+		case PATTERNS_BUILDER:					BuilderPattern.BuilderPatternDemo();	 					break;
+		case PATTERNS_FACTORY:					FactoryMethodPattern.FactoryMethodPatternDemo();			break;
+		case PATTERNS_OBJECTPOOL: 				ObjectPoolPattern.ObjectPoolPatternDemo();					break;
+		case PATTERNS_PROTOTYPE: 				PrototypePattern.PrototypePatternDemo();					break;
+		case PATTERNS_SINGLETON: 				SingletonPattern.SingletonPatternDemo();					break;
+		case PATTERNS_ADAPTER: 					AdapterPattern.AdapterPatternDemo();						break;
+		case PATTERNS_BRIDGE: 					BridgePattern.BridgePatternDemo();							break;
+		case PATTERNS_COMPOSITE: 				CompositePattern.CompositePatternDemo();					break;
+		case PATTERNS_DECORATOR: 				DecoratorPattern.DecoratorPatternDemo();					break;
+		case PATTERNS_FACADE: 					FacadePattern.FacadePatternDemo();							break;
+		case PATTERNS_PROXY: 					ProxyPattern.ProxyPatternDemo();							break;
+		case COLLECTION_LIST:	 				Lists.printAllLists();										break;
+		case MAP_MAPS:							Maps.printAllMaps();										break;
 
 		}
 	}

@@ -19,8 +19,8 @@ import java.io.InputStreamReader;
 
  https://www.javatpoint.com/factory-method-design-pattern
  */
-public class FactoryMethod{  
-	public static void GenerateBill() throws IOException{  
+public class FactoryMethodPattern{  
+	public static void FactoryMethodPatternDemo() throws IOException{  
 		GetPlanFactory planFactory = new GetPlanFactory();  
 
 		System.out.print("Enter the name of plan for which the bill will be generated [1-DOMESTICPLAN, 2-COMMERCIALPLAN, 3-INSTITUTIONALPLAN]: ");  

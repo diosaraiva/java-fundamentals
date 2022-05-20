@@ -1,0 +1,131 @@
+package com.diosaraiva.javafundamentals.designpatterns.creational.singleton;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/*
+ Singleton Pattern says that just"define a class that has only one instance and provides a global point of access to it".
+
+ In other words, a class must ensure that only single instance should be created and single object can be used by all other classes.
+
+ There are two forms of singleton design pattern
+
+ - Early Instantiation: creation of instance at load time.
+ - Lazy Instantiation: creation of instance when required.
+
+ Advantage of Singleton design pattern
+ - Saves memory because object is not created at each request. Only single instance is reused again and again.
+
+ Usage of Singleton design pattern
+ - Singleton pattern is mostly used in multi-threaded and database applications. It is used in logging, caching, thread pools, configuration settings etc.
+
+ https://www.javatpoint.com/singleton-design-pattern-in-java
+ */
+public class SingletonPattern{
+	static int count=1;
+	static int  choice;
+
+	public static void SingletonPatternDemo() throws IOException {
+		JDBCSingleton jdbc= JDBCSingleton.getInstance();
+
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+		do{ 
+			System.out.println("DATABASE OPERATIONS");
+			System.out.println(" --------------------- ");
+			System.out.println(" 1. Insertion ");
+			System.out.println(" 2. View      ");
+			System.out.println(" 3. Delete    ");
+			System.out.println(" 4. Update    ");
+			System.out.println(" 5. Exit      ");
+
+			System.out.print("\n");
+
+			System.out.print("Please enter the choice what you want to perform in the database: ");
+
+			choice=Integer.parseInt(br.readLine());
+
+			switch(choice)
+			{
+			case 1:{
+				System.out.print("Enter the username you want to insert data into the database: ");
+				String username=br.readLine();
+				System.out.print("Enter the password you want to insert data into the database: ");
+				String password=br.readLine();
+
+				try {
+					int i= jdbc.insert(username, password);
+					if (i>0) {
+						System.out.println((count++) + " Data has been inserted successfully");
+					}else{
+						System.out.println("Data has not been inserted ");    
+					}
+
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+
+				System.out.println("Press Enter key to continue...");
+				System.in.read();
+
+			}//End of case 1
+			break;
+			case 2:{
+				System.out.print("Enter the username you want to view the entire data from the database: ");
+				String username=br.readLine();
+
+				try  {
+					jdbc.view(username);
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+				System.out.println("Press Enter key to continue...");
+				System.in.read();
+			}//End of case 2
+			break;
+			case 3:{
+				System.out.print("Enter the userid for which you want to delete the entire data from the database: ");
+				int userid=Integer.parseInt(br.readLine());
+
+				try {
+					int i= jdbc.delete(userid);
+					if (i>0) {
+						System.out.println((count++) + " Data has been deleted successfully");
+					}else{
+						System.out.println("Data has not been deleted");    
+					}
+
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+				System.out.println("Press Enter key to continue...");
+				System.in.read();
+			}//End of case 3
+			break;
+			case 4:{
+				System.out.print("Enter the username for which  you want to update the data into the database: ");
+				String username=br.readLine();
+				System.out.print("Enter the new password ");
+				String password=br.readLine();
+
+				try {
+					int i= jdbc.update(username, password);
+					if (i>0) {
+						System.out.println((count++) + " Data has been updated successfully");
+					}
+
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+				System.out.println("Press Enter key to continue...");
+				System.in.read();
+			}// end of case 4
+			break;
+
+			default:
+				return;
+			}
+		} while (choice!=4); 
+	}
+}

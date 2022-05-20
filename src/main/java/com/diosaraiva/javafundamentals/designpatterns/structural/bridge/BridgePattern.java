@@ -17,8 +17,8 @@ package com.diosaraiva.javafundamentals.designpatterns.structural.bridge;
 
  https://www.javatpoint.com/bridge-pattern
  */
-public class Bridge{
-	public static void askQuestions(){  
+public class BridgePattern{
+	public static void BridgePatternDemo(){  
 		QuestionFormat questions = new QuestionFormat("Java Programming Language");
 		questions.q = new JavaQuestions();  
 		questions.delete("what is class?");

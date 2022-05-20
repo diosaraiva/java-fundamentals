@@ -22,8 +22,8 @@ import java.io.InputStreamReader;
 
  https://www.javatpoint.com/abstract-factory-pattern
  */
-public class AbstractFactory{  
-	public static void GetLoan() throws IOException{
+public class AbstractFactoryPattern{  
+	public static void AbstractFactoryPatternDemo() throws IOException{
 		System.out.print("Enter the name of Bank from where you want to take loan amount [1.HDFC, 2.ICICI, 3.SBI]: ");
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));    
