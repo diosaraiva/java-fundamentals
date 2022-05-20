@@ -18,7 +18,7 @@ package com.diosaraiva.javafundamentals.designpatterns.behavioral.memento;
  https://www.javatpoint.com/memento-pattern
  */
 public class MementoPattern {  
-	public static void saveMemento(){  
+	public static void MementoPatternDemo(){  
 		Originator originator = new Originator();  
 
 		Caretaker careTaker = new Caretaker();  

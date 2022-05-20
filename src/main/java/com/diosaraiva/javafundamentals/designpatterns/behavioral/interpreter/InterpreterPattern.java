@@ -19,8 +19,8 @@ package com.diosaraiva.javafundamentals.designpatterns.behavioral.interpreter;
 
  https://www.javatpoint.com/command-pattern
  */
-public class Interpreter{
-	public static void InfixToPostfix(){
+public class InterpreterPattern{
+	public static void InterpreterPatternDemo(){
 		String infix = "a+b*c";  
 
 		InfixToPostfixPattern ip=new InfixToPostfixPattern();  

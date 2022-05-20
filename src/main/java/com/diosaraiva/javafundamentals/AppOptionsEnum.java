@@ -1,15 +1,15 @@
 package com.diosaraiva.javafundamentals;
 
-import java.io.IOException;
-
-import com.diosaraiva.javafundamentals.designpatterns.behavioral.chainofresponsibility.ChainofResponsibility;
-import com.diosaraiva.javafundamentals.designpatterns.behavioral.command.Command;
-import com.diosaraiva.javafundamentals.designpatterns.behavioral.interpreter.Interpreter;
+import com.diosaraiva.javafundamentals.designpatterns.behavioral.chainofresponsibility.ChainofResponsibilityPattern;
+import com.diosaraiva.javafundamentals.designpatterns.behavioral.command.CommandPattern;
+import com.diosaraiva.javafundamentals.designpatterns.behavioral.interpreter.InterpreterPattern;
 import com.diosaraiva.javafundamentals.designpatterns.behavioral.iterator.IteratorPattern;
-import com.diosaraiva.javafundamentals.designpatterns.behavioral.mediator.Mediator;
+import com.diosaraiva.javafundamentals.designpatterns.behavioral.mediator.MediatorPattern;
 import com.diosaraiva.javafundamentals.designpatterns.behavioral.memento.MementoPattern;
 import com.diosaraiva.javafundamentals.designpatterns.behavioral.observer.ObserverPattern;
-import com.diosaraiva.javafundamentals.designpatterns.behavioral.state.State;
+import com.diosaraiva.javafundamentals.designpatterns.behavioral.state.StatePattern;
+import com.diosaraiva.javafundamentals.designpatterns.behavioral.strategy.StrategyPattern;
+import com.diosaraiva.javafundamentals.designpatterns.behavioral.template.TemplatePattern;
 import com.diosaraiva.javafundamentals.designpatterns.creational.abstractfactory.AbstractFactory;
 import com.diosaraiva.javafundamentals.designpatterns.creational.builder.Builder;
 import com.diosaraiva.javafundamentals.designpatterns.creational.factorymethod.FactoryMethod;
@@ -35,6 +35,8 @@ public enum AppOptionsEnum{
 	PATTERNS_MEMENTO				("design-patterns/behavioral/memento"),
 	PATTERNS_OBSERVER				("design-patterns/behavioral/observer"),
 	PATTERNS_STATE					("design-patterns/behavioral/state"),
+	PATTERNS_STRATEGY				("design-patterns/behavioral/strategy"),
+	PATTERNS_TEMPLATE				("design-patterns/behavioral/template"),
 	PATTERNS_ABSTRACT				("design-patterns/creational/abstractfactory"),
 	PATTERNS_BUILDER				("design-patterns/creational/builder"),
 	PATTERNS_FACTORY				("design-patterns/creational/factorymethod"),
@@ -51,17 +53,19 @@ public enum AppOptionsEnum{
 	UTILS_PROPERTIESREAD			("utils/properties/read"),
 	UTILS_REGEXISNUMERIC			("utils/regex/isnumeric");
 
-	public static void runOptionEnum(String option) throws IOException{
+	public static void runOptionEnum(String option) throws Exception{
 		switch (getEnum(option)){
 
-		case PATTERNS_CHAINOFRESPONSIBILITY: 	ChainofResponsibility.GetChainInfo();	break;
-		case PATTERNS_COMMAND:				 	Command.OpenAndSave();					break;
-		case PATTERNS_INTERPRETER:			 	Interpreter.InfixToPostfix();			break;
-		case PATTERNS_ITERATOR:			 		IteratorPattern.PrintNames();			break;
-		case PATTERNS_MEDIATOR:			 		Mediator.CallMediator();				break;
-		case PATTERNS_MEMENTO:			 		MementoPattern.saveMemento();			break;
-		case PATTERNS_OBSERVER:			 		ObserverPattern.runEvent();				break;
-		case PATTERNS_STATE:			 		State.getState();						break;
+		case PATTERNS_CHAINOFRESPONSIBILITY: 	ChainofResponsibilityPattern.ChainofResponsibilityDemo();	break;
+		case PATTERNS_COMMAND:				 	CommandPattern.CommandDemo();								break;
+		case PATTERNS_INTERPRETER:			 	InterpreterPattern.InterpreterPatternDemo();				break;
+		case PATTERNS_ITERATOR:			 		IteratorPattern.IteratorPatternDemo();						break;
+		case PATTERNS_MEDIATOR:			 		MediatorPattern.MediatorPatternDemo();						break;
+		case PATTERNS_MEMENTO:			 		MementoPattern.MementoPatternDemo();						break;
+		case PATTERNS_OBSERVER:			 		ObserverPattern.ObserverPatternDemo();						break;
+		case PATTERNS_STATE:			 		StatePattern.StatePatternDemo();							break;
+		case PATTERNS_STRATEGY:			 		StrategyPattern.StrategyPatternDemo();						break;
+		case PATTERNS_TEMPLATE:			 		TemplatePattern.TemplatePatternDemo();						break;
 		case PATTERNS_ABSTRACT: 				AbstractFactory.GetLoan();				break;
 		case PATTERNS_BUILDER:					Builder.BuildCds(); 					break;
 		case PATTERNS_FACTORY:					FactoryMethod.GenerateBill();			break;

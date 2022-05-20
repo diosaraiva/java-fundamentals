@@ -19,10 +19,10 @@ import java.io.InputStreamReader;
 
  https://www.javatpoint.com/state-pattern
  */
-public class State{  
+public class StatePattern{  
 	Controller controller;  
 
-	State(String con){  
+	StatePattern(String con){  
 		controller = new Controller();
 
 		//the following trigger should be made by the user  
@@ -36,11 +36,11 @@ public class State{
 		controller.update();  
 	}  
 
-	public static void getState() throws IOException{
+	public static void StatePatternDemo() throws IOException{
 		System.out.print("Enter Connection [1-management, 2-sales, 3-accounting]: ");  
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		new State(br.readLine());  
+		new StatePattern(br.readLine());  
 	}  
 }

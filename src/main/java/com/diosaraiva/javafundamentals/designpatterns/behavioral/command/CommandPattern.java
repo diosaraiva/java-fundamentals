@@ -17,8 +17,8 @@ It is used:
 
 https://www.javatpoint.com/command-pattern
  */
-public class Command{
-	public static void OpenAndSave(){
+public class CommandPattern{
+	public static void CommandDemo(){
 		Document doc = new Document();  
 
 		ActionListenerCommand clickOpen = new ActionOpen(doc);  

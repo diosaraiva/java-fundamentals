@@ -16,7 +16,7 @@ package com.diosaraiva.javafundamentals.designpatterns.behavioral.observer;
  https://www.javatpoint.com/observer-pattern
  */
 public class ObserverPattern{  
-	public static void runEvent(){  
+	public static void ObserverPatternDemo(){  
 		System.out.println("Enter Text >");
 
 		// create an event source - reads from stdin

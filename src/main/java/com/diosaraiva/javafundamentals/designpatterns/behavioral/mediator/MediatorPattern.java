@@ -20,9 +20,9 @@ package com.diosaraiva.javafundamentals.designpatterns.behavioral.mediator;
 
  https://www.javatpoint.com/mediator-pattern
  */
-public class Mediator
+public class MediatorPattern
 {
-	public static void CallMediator(){
+	public static void MediatorPatternDemo(){
 		ApnaChatRoom chat = new ApnaChatRoomImpl();  
 
 		User1 u1=new User1(chat);  

@@ -11,7 +11,7 @@ package com.diosaraiva.javafundamentals.designpatterns.behavioral.chainofrespons
  - It reduces the coupling;
  - It adds flexibility while assigning the responsibilities to objects;
  - It allows a set of classes to act as one; events produced in one class can be sent to other handler classes with the help of composition.
- 
+
  Usage of Chain of Responsibility Pattern:
  It is used:
  - When more than one object can handle a request and the handler is unknown;
@@ -19,8 +19,8 @@ package com.diosaraiva.javafundamentals.designpatterns.behavioral.chainofrespons
 
  https://www.javatpoint.com/chain-of-responsibility-pattern
  */
-public class ChainofResponsibility {
-	public static void GetChainInfo(){
+public class ChainofResponsibilityPattern {
+	public static void ChainofResponsibilityDemo(){
 		Logger chainLogger= ChainofResponsibilityClient.doChaining();  
 
 		chainLogger.logMessage(Logger.OUTPUTINFO, "Enter the sequence of values ");  

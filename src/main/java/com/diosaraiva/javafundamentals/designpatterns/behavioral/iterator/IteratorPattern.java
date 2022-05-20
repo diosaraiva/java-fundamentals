@@ -19,7 +19,7 @@ package com.diosaraiva.javafundamentals.designpatterns.behavioral.iterator;
  - When there are multiple traversals of objects need to be supported in the collection.
  */
 public class IteratorPattern{
-	public static void PrintNames(){
+	public static void IteratorPatternDemo(){
 		CollectionofNames cmpnyRepository = new CollectionofNames();
 
 		for(Iterator iter = cmpnyRepository.getIterator(); iter.hasNext();){
