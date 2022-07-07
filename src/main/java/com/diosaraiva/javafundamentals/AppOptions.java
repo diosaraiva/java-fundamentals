@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class AppOptions{
+public class AppOptions {
 	public static boolean runConsole(){
 		Map<Integer,String> optionList = getOptionList();
 
